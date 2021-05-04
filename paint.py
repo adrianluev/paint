@@ -34,7 +34,15 @@ def rectangle(start, end):
 
 def triangle(start, end):
     "Draw triangle from start to end."
-    pass  # TODO
+    #Ricardo Triangulo
+    L = end.x - start.x       #Distancia para los lados
+    begin_fill()              #Iniciar relleno
+    for count in range(3):    #Crean un trazo de 3 lineas de 120 
+        forward(L)
+        left(120)             #Angulo de vuelta
+    end_fill()
+        
+    
 
 def tap(x, y):
     "Store starting point or draw shape."
@@ -58,7 +66,8 @@ onscreenclick(tap)
 listen()
 onkey(undo, 'u')
 onkey(lambda: color('black'), 'K')
-onkey(lambda: color('#F5B7B1'), 'Q')
+onkey(lambda: color('#F5B7B1'), 'Q') #Color Maestra
+onkey(lambda: color('#00ffff'), 'Y') #Color Ricardo
 onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
@@ -66,50 +75,6 @@ onkey(lambda: color('red'), 'R')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circulo), 'c')
-onkey(lambda: store('shape', rectangle), 'r')
-onkey(lambda: store('shape', triangle), 't')
-done()
-
-    "Draw circle from start to end."
-    pass  # TODO
-
-def rectangle(start, end):
-    "Draw rectangle from start to end."
-    pass  # TODO
-
-def triangle(start, end):
-    "Draw triangle from start to end."
-    pass  # TODO
-
-def tap(x, y):
-    "Store starting point or draw shape."
-    start = state['start']
-
-    if start is None:
-        state['start'] = vector(x, y)
-    else:
-        shape = state['shape']
-        end = vector(x, y)
-        shape(start, end)
-        state['start'] = None
-
-def store(key, value):
-    "Store value in state at key."
-    state[key] = value
-
-state = {'start': None, 'shape': line}
-setup(420, 420, 370, 0)
-onscreenclick(tap)
-listen()
-onkey(undo, 'u')
-onkey(lambda: color('black'), 'K')
-onkey(lambda: color('white'), 'W')
-onkey(lambda: color('green'), 'G')
-onkey(lambda: color('blue'), 'B')
-onkey(lambda: color('red'), 'R')
-onkey(lambda: store('shape', line), 'l')
-onkey(lambda: store('shape', square), 's')
-onkey(lambda: store('shape', circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
 done()
