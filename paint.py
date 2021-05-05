@@ -28,9 +28,18 @@ def circulo(start, end):
     circle(distancia)
     end_fill()
 
-def rectangle(start, end):
-    "Draw rectangle from start to end."
-    pass  # TODO
+#Adrian
+def rectangle(start, end): # Esta funcion crea un rectangulo con la key "R"
+    "Draw rectangle from start to end." 
+    L = end.x - start.x  # Largo de rectangulo
+    begin_fill()  # Iniciar relleno
+    for count in range(4):  # For de 4 loops para 4 lineas del rectangulo
+        if(count % 2): # IF para diferenciar los lados del rectangulo
+            forward(L)
+        else:
+            forward(L/2) # Ancho de Rectangulo
+        left(90)  # LLamada de funcion para vuelta a la izquierda de 90 grados
+    end_fill()
 
 def triangle(start, end):
     "Draw triangle from start to end."
